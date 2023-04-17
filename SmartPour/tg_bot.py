@@ -19,7 +19,7 @@ drink = ''
 
 @bot.message_handler(commands=[config.print_data])
 def show_data(message):
-    conn = sqlite3.connect('SmartPourData.sql')
+    conn = sqlite3.connect(config.NAME_DATABASE)
     cur = conn.cursor()
     try:
         cur.execute('SELECT * FROM drinks')
@@ -38,7 +38,7 @@ def show_data(message):
 
 @bot.message_handler(commands=[config.delete_data])
 def delite_data(message):
-    conn = sqlite3.connect('SmartPourData.sql')
+    conn = sqlite3.connect(config.NAME_DATABASE)
     cur = conn.cursor()
     cur.execute('DELETE FROM drinks')
     conn.commit()
@@ -167,7 +167,7 @@ def check_click_state(message):
 
 def get_data(message):
     email = message.text
-    conn = sqlite3.connect('SmartPourData.sql')
+    conn = sqlite3.connect(config.NAME_DATABASE)
     cur = conn.cursor()
     cur.execute('CREATE TABLE IF NOT EXISTS drinks (id int auto_increment primary key, drink varchar(50), volume int, '
                 'email varchar(50) )')
