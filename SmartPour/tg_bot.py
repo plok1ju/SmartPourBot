@@ -122,7 +122,7 @@ def get_volume(message):
             keyboard1.add(key_yes)
             key_no = types.KeyboardButton(text='Нет')
             keyboard1.add(key_no)
-            question = 'Подтвердите ваш заказ\nВаш напиток: ' + drink.lower() + ' объемом ' + str(volume)
+            question = 'Подтвердите ваш заказ\nВаш напиток: ' + drink.lower() + ' объемом ' + str(volume) + ' мл'
             bot.send_message(message.from_user.id, text=question, reply_markup=keyboard1)
             bot.register_next_step_handler(message, check_click_state)
         except Exception:
