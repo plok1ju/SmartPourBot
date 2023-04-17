@@ -104,7 +104,7 @@ def check_click_drinks(message):
         keyboard.add(key_orange_juice)
         key_apple_juice = types.KeyboardButton(text='Сок яблочный')
         keyboard.add(key_apple_juice)
-        question = 'Выберете напитки из предложенных'
+        question = 'Выберите напитки из предложенных'
         bot.send_message(message.chat.id, text=question, reply_markup=keyboard)
         bot.register_next_step_handler(message, check_click_drinks)
 
