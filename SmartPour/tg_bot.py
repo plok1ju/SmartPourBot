@@ -17,7 +17,7 @@ volume_to_data = 0
 drink = ''
 
 
-@bot.message_handler(commands=['fb1546'])
+@bot.message_handler(commands=[config.print_data])
 def show_data(message):
     conn = sqlite3.connect('SmartPourData.sql')
     cur = conn.cursor()
@@ -36,7 +36,7 @@ def show_data(message):
         bot.send_message(message.chat.id, 'Нет данных')
 
 
-@bot.message_handler(commands=['del_fb1546'])
+@bot.message_handler(commands=[config.delete_data])
 def delite_data(message):
     conn = sqlite3.connect('SmartPourData.sql')
     cur = conn.cursor()
